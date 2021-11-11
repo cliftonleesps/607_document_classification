@@ -1,0 +1,92 @@
+---
+title: "DATA 607 Project 4"
+output: html_document
+---
+
+```{r}
+library(tm)
+library(tidytext)
+library(RTextTools)
+library(tidyverse)
+library(kableExtra)
+library(wordcloud)
+library(tidyr)
+library(caret)
+library(ggplot2)
+library(dplyr)
+library(quanteda)
+library("quanteda.textplots")
+```
+# naive Bayes Method
+```{r}
+spam_path <- "/Users/admin/Desktop/DATA607/project4/spam/"
+ham_path <- "/Users/admin/Desktop/DATA607/project4/easy_ham/"
+
+spam_filelist <-list.files(spam_path)
+spam_filelist <- as.data.frame(spam_filelist)
+spam_filelist<-rename(spam_filelist,file=spam_filelist)
+spam_filelist["type"]<-"spam"
+ham_filelist <-list.files(ham_path)
+ham_filelist <- as.data.frame(ham_filelist)
+ham_filelist<-rename(ham_filelist,file=ham_filelist)
+ham_filelist["type"]<-"ham"
+
+filelist <- rbind(ham_filelist,spam_filelist)
+
+set.seed(80)
+sample<-sample_n(filelist,100)
+train <- sample[1:80,]
+test <- sample[81:100,]
+data.raw <- data.frame(x='',y='',type='')
+
+for (i in 1:80){
+  if (train$type[i]=='spam'){
+    path <- "/Users/admin/Desktop/DATA607/project4/spam/"
+  }else{
+    path <- "/Users/admin/Desktop/DATA607/project4/easy_ham/"
+  }
+  path<- paste(path,train$file[i],sep="")
+  ham_spam<- read_lines(path,skip=0,n_max = -1L)
+  temp<-as.data.frame(merge(train$file[i],ham_spam))
+  temp["type"] <- train$type[i]
+  data.raw <- rbind.data.frame(data.raw,temp)
+}
+
+df <- as.data.frame(data.raw %>% unnest_tokens(ngram, y, token = "ngrams", n = 1))
+#test <- spam.raw %>% unnest_tokens(word,y, format = "html")
+
+names(df)[1] <- 'doc'
+df <- df %>% group_by(doc) %>% mutate(words.in.doc = n())
+doc.word <- unique(df %>% group_by(doc,ngram)) 
+doc.word <- doc.word %>% group_by(type,ngram) %>% mutate(type.doc.with.words = n())
+doc.word <- doc.word %>% filter() %>% group_by(ngram) %>% mutate(doc.with.words = n())
+View(doc.word)
+temp <- merge(df,doc.word,by=c("doc","ngram"))
+View(temp)
+
+df_words<-merge(df %>% group_by(type) %>% dplyr::summarize(words.total = n()),
+      df %>% group_by(type,ngram) %>% dplyr::summarize(words.count = n()+1),by="type")
+df_words <- df_words %>% mutate(p_word = words.count/words.total)
+View(df_words)
+
+
+# video
+
+ham_words<- ham_words %>% mutate(ham.words.total=sum(n()),p.word.ham = ham.word.count/sum(ham.word.count))
+
+ham_spam <- rbind(spam_words,ham_words)
+View(ham_spam %>% arrange(word))
+
+#-------------------
+corp.spam <- corpus(spam.raw,text_field = "y")
+dtm.spam <- dfm(corp.spam, stem=T, remove=stopwords('en'),remove_punct=T)
+dtm.spam = dfm_trim(dtm.spam,min_termfreq = 10)
+textplot_wordcloud(dtm.spam)
+
+corp.ham <- corpus(ham.raw,text_field = "y")
+dtm.ham <- dfm(corp.ham, stem=T, remove=stopwords('en'),remove_punct=T)
+dtm.ham = dfm_trim(dtm.ham,min_termfreq = 10)
+textplot_wordcloud(dtm.ham)
+
+typeof(dtm.ham)
+```
