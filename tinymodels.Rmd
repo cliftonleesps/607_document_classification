@@ -40,6 +40,30 @@ full_github_url <- function(relative_path) {
   return (paste(github_repo, relative_path, sep="" ))
 }
 
+random_ham_file <- function() {
+  # Select a different random message that's not part of the training set
+  random_ham <- sample(unlist(ham_files), 1, replace = FALSE)
+  
+  # Repeat until we find a random spam file that is not in the training set
+  while (any(str_detect(all_samples, random_ham))) {
+    random_ham <- sample(unlist(ham_files), 1, replace = FALSE)
+  }
+  return (random_ham)
+}
+
+
+random_spam_file <- function() {
+  # Select a different random message that's not part of the training set
+  random_spam <- sample(unlist(spam_files), 1, replace = FALSE)
+  
+  # Repeat until we find a random spam file that is not in the training set
+  while (any(str_detect(all_samples, random_spam))) {
+    random_spam <- sample(unlist(spam_files), 1, replace = FALSE)
+  }
+  return (random_spam)
+}
+
+
 # Calculate a metric on a email subject. Range: 0.0 to 1.0
 get_spam_subject_metric <- function(filename) { 
   spam_message <- read_file(filename)
@@ -249,20 +273,55 @@ test_predictions
 
 final_model <- fit(rf_workflow, email_messages)
 final_model
-
-
-test_filename <- "spam/00951.f7044a1b178dc3dcff44932f840b8805"
-test_filename <- "ham/2531.8f40eb6fd94f9e48d56f6374ddc3427a"
-new_email_subject_metric <- get_spam_subject_metric(test_filename)
-new_email_spam_body_metric <- get_spam_body_metric(test_filename)
-new_email_ham_body_metric <- get_ham_body_metric(test_filename)
-
-new_email <- tribble(~spam_subject_metric, ~spam_body_metric, ~ham_body_metric,
-                     new_email_subject_metric, new_email_spam_body_metric, new_email_ham_body_metric
-                     )
-  
-new_email
-
-predict(final_model, new_data = new_email)
-
+# We have our final tuned recommender model
 ```
+
+
+```{r}
+# Select a few different random message that's not part of the training set for testing
+total_cases <- 20
+count <- 0
+correct_count <- 0
+while (count < total_cases) {
+  
+  # For even iterations, just select a ham file
+  if ( count %% 2 == 0) {
+    correct_type <- "ham"
+    test_filename <- random_ham_file()
+  } else {
+    correct_type <- "spam"
+    test_filename <- random_spam_file()
+  }
+  
+  test_email_subject_metric <- get_spam_subject_metric(test_filename)
+  test_email_spam_body_metric <- get_spam_body_metric(test_filename)
+  test_email_ham_body_metric <- get_ham_body_metric(test_filename)
+  
+  test_email <- tribble(~spam_subject_metric, ~spam_body_metric, ~ham_body_metric,
+                       test_email_subject_metric, test_email_spam_body_metric, test_email_ham_body_metric
+                       )
+  #test_email
+  
+  # predict
+  email_type_prediction <- predict(final_model, new_data = test_email)
+  
+  # was it predicted as spam or ham?
+  email_type <- email_type_prediction$.pred_class
+  
+  # Increment if the prediction was correct
+  if (email_type == correct_type) {
+    correct_count <- correct_count + 1
+    label <- ""
+  } else {
+    label <- " INCORRECTLY"
+  }
+  
+  # output
+  print (paste("The file (", test_filename,") was",label," classified as: ", email_type, sep=""))
+  
+  count <- count + 1
+}
+
+print (paste("The accuracy rate is: ", round(correct_count/total_cases, 2), sep=""))
+```
+
