@@ -66,7 +66,7 @@ random_spam_file <- function() {
 
 # Calculate a metric on a email subject. Range: 0.0 to 1.0
 get_spam_subject_metric <- function(filename) { 
-  spam_message <- read_file(filename)
+  spam_message <- read_file(full_github_url(filename))
   
   subject <- str_to_lower( str_match(spam_message, "\nSubject: (.*?)\n"))
   spam_subject_tibble <- tibble(
@@ -81,9 +81,21 @@ get_spam_subject_metric <- function(filename) {
   return (spam_subject_metric)
 }
 
+
+
+```
+
+
+```{r}
+
 # Calculate a metric on a message body compared to other spam messages. Range: 0.0 to 1.0
 get_spam_body_metric <- function(filename) { 
-  email_message <- VCorpus(MBoxSource(filename), readerControl = list(reader = readMail))
+  # retrieve the file from Github and store locally in a hidden file
+  hidden_filename <- '.tmp.txt'
+  github_file <- read_file(full_github_url(filename))
+  write_file(github_file, hidden_filename)
+  
+  email_message <- VCorpus(MBoxSource(hidden_filename), readerControl = list(reader = readMail))
   
   if (length(email_message) == 0) {
     return (0)
@@ -104,7 +116,12 @@ get_spam_body_metric <- function(filename) {
 
 # Calculate a metric on a message body compared to other ham messages. Range: 0.0 to 1.0
 get_ham_body_metric <- function(filename) {
-  email_message <- VCorpus(MBoxSource(filename), readerControl = list(reader = readMail))
+  # retrieve the file from Github and store locally in a hidden file
+  hidden_filename <- '.tmp.txt'
+  github_file <- read_file(full_github_url(filename))
+  write_file(github_file, hidden_filename)
+
+  email_message <- VCorpus(MBoxSource(hidden_filename), readerControl = list(reader = readMail))
   
   if (length(email_message) == 0) {
     return (0)
