@@ -58,7 +58,7 @@ Log Message:
 fixed bug 1033: -R and -W were not respecting auto_whitelist_path
 
 Index: db_based_whitelist.t
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/t/db_based_whitelist.t,v
 retrieving revision 1.7
 retrieving revision 1.8
@@ -99,7 +99,7 @@ diff -b -w -u -d -r1.7 -r1.8
  ok_all_patterns();
 
 Index: db_based_whitelist_ips.t
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/t/db_based_whitelist_ips.t,v
 retrieving revision 1.2
 retrieving revision 1.3

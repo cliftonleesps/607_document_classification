@@ -57,7 +57,7 @@ Log Message:
 restricted version_tag
 
 Index: Conf.pm
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/lib/Mail/SpamAssassin/Conf.pm,v
 retrieving revision 1.92
 retrieving revision 1.93

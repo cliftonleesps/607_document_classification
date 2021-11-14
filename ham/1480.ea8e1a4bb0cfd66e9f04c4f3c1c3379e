@@ -63,7 +63,7 @@ Log Message:
 added length limit to sample procmail recipe
 
 Index: procmailrc.example
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/procmailrc.example,v
 retrieving revision 1.3
 retrieving revision 1.3.2.1

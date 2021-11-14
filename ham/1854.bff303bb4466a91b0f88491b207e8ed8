@@ -61,7 +61,7 @@ there's a better fix I just wasn't capable of discovering :)
 
 ------------------------------8<------------------------------
 Index: tokenizer.py
-===================================================================
+
 RCS file: /cvsroot/spambayes/spambayes/tokenizer.py,v
 retrieving revision 1.15
 diff -u -r1.15 tokenizer.py

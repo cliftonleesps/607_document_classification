@@ -63,7 +63,7 @@ Log Message:
 fix for bug 784
 
 Index: parse-rules-for-masses
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/masses/parse-rules-for-masses,v
 retrieving revision 1.1.2.2
 retrieving revision 1.1.2.3

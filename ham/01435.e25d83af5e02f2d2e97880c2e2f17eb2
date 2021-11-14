@@ -58,7 +58,7 @@ Log Message:
 added deprecation regarding starting line with space; reserved for future use; also changed sample version_tag
 
 Index: Conf.pm
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/lib/Mail/SpamAssassin/Conf.pm,v
 retrieving revision 1.91.2.7
 retrieving revision 1.91.2.8

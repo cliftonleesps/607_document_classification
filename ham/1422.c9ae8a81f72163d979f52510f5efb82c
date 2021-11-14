@@ -63,7 +63,7 @@ Log Message:
 removed -P
 
 Index: spamassassin.README.Debian
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/debian/spamassassin.README.Debian,v
 retrieving revision 1.1
 retrieving revision 1.2

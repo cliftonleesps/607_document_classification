@@ -64,7 +64,7 @@ Log Message:
 Fixes, additions to mass-check
 
 Index: mass-check
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/masses/mass-check,v
 retrieving revision 1.67
 retrieving revision 1.67.2.1

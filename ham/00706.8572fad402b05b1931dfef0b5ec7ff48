@@ -107,7 +107,7 @@ Content-Description: exmh.patch
 Content-Disposition: attachment; filename="exmh.patch"
 
 Index: lib/ftoc.tcl
-===================================================================
+
 RCS file: /cvsroot/exmh/exmh/lib/ftoc.tcl,v
 retrieving revision 1.29
 diff -u -b -B -w -p -r1.29 ftoc.tcl
@@ -291,7 +291,7 @@ diff -u -b -B -w -p -r1.29 ftoc.tcl
  	    }
  	    if {$L == $ftoc(curLine)} {
 Index: lib/msg.tcl
-===================================================================
+
 RCS file: /cvsroot/exmh/exmh/lib/msg.tcl,v
 retrieving revision 1.21
 diff -u -b -B -w -p -r1.21 msg.tcl
@@ -358,7 +358,7 @@ diff -u -b -B -w -p -r1.21 msg.tcl
      Ftoc_ShowSequences $exmh(folder)
  }
 Index: lib/scan.tcl
-===================================================================
+
 RCS file: /cvsroot/exmh/exmh/lib/scan.tcl,v
 retrieving revision 1.21
 diff -u -b -B -w -p -r1.21 scan.tcl

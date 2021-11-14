@@ -58,7 +58,7 @@ Log Message:
 added a warning for ISPs in required_hits manual entry
 
 Index: Conf.pm
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/lib/Mail/SpamAssassin/Conf.pm,v
 retrieving revision 1.91.2.2
 retrieving revision 1.91.2.3

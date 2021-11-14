@@ -58,7 +58,7 @@ Log Message:
 fixed bug 1033: -R and -W were not respecting auto_whitelist_path
 
 Index: spamassassin.raw
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/spamassassin.raw,v
 retrieving revision 1.68.2.12
 retrieving revision 1.68.2.13

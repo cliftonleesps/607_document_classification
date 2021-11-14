@@ -62,7 +62,7 @@ Log Message:
 fixed bug 1033: -R and -W were not respecting auto_whitelist_path
 
 Index: 50_scores.cf
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/rules/50_scores.cf,v
 retrieving revision 1.226
 retrieving revision 1.227
@@ -80,7 +80,7 @@ diff -b -w -u -d -r1.226 -r1.227
  score RATWARE_DIFFOND                2.200
 
 Index: 60_whitelist.cf
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/rules/60_whitelist.cf,v
 retrieving revision 1.31
 retrieving revision 1.32

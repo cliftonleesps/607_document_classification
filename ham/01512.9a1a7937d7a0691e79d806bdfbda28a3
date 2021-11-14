@@ -58,7 +58,7 @@ Log Message:
 fixed bug 1033: -R and -W were not respecting auto_whitelist_path
 
 Index: SpamAssassin.pm
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/lib/Mail/SpamAssassin.pm,v
 retrieving revision 1.115.2.11
 retrieving revision 1.115.2.12

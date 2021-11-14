@@ -58,7 +58,7 @@ Log Message:
 added a warning for ISPs in required_hits manual entry
 
 Index: RUNME
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/wordfreqs/RUNME,v
 retrieving revision 1.1
 retrieving revision 1.1.4.1

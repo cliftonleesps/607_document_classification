@@ -63,7 +63,7 @@ Log Message:
 ok, looks like SA can now be run even with another version installed in /usr, again
 
 Index: SATest.pm
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/t/SATest.pm,v
 retrieving revision 1.15.4.1
 retrieving revision 1.15.4.2

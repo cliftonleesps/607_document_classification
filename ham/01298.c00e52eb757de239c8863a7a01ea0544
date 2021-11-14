@@ -57,7 +57,7 @@ Log Message:
 patch from Radoslaw Zielinski <radek@karnet.pl>: rpm support for PLD Linux Distribution.  Makefile.PL created Makefile, which caused problems with DESTDIR; fixed. also rc-script for PLD
 
 Index: MANIFEST
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/MANIFEST,v
 retrieving revision 1.80
 retrieving revision 1.81
@@ -71,7 +71,7 @@ diff -u -d -r1.80 -r1.81
 +spamd/pld-rc-script.sh
 
 Index: Makefile.PL
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/Makefile.PL,v
 retrieving revision 1.31
 retrieving revision 1.32

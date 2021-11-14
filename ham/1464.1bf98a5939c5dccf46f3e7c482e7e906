@@ -64,7 +64,7 @@ Log Message:
 NetBSD support patch from Klaus Heinz, bug 785
 
 Index: configure
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/configure,v
 retrieving revision 1.1.2.1
 retrieving revision 1.1.2.2
@@ -372,7 +372,7 @@ diff -b -w -u -d -r1.1.2.1 -r1.1.2.2
  else
 
 Index: configure.in
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/configure.in,v
 retrieving revision 1.1.2.1
 retrieving revision 1.1.2.2

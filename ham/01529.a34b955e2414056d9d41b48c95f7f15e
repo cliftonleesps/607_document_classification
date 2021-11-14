@@ -100,7 +100,7 @@ OVERALL%   SPAM% NONSPAM%     S/O    RANK   SCORE  NAME
 
 Spam % of all rules with S/0 > 0.90: 20.615%
 
-=============================
+
 
 The total number of IMG tags is really easy to do.
 
@@ -127,7 +127,7 @@ The total number of IMG tags is really easy to do.
 
 Spam % of all rules with S/O > 0.90: 31.25%
 
-=========================
+
 
 I figured that spam that is made up of only images is going to only
 have IMG tags interspersed with table, paragraph and linebreak tags,
@@ -161,7 +161,7 @@ there's only a handful of messages with IMG runs larger than two.
 
 Spam % of all rules with S/O > 0.90: 22.85%
 
-==========================
+
 
 Next I'm going to see if there's any meta rules I can make that will
 reduce the FP rate for low S/O rules.

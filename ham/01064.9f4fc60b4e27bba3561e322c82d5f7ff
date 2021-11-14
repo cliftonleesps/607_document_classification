@@ -59,7 +59,7 @@ I've never installed source rpms with apt, but I suppose that if you get
 file not found, it's because the source rpm was installed. To see if this
 is the case, go to /usr/src/redhat/SPECS/ and if you see mplayer.spec,
 you'll just need to do "rpm -bb mplayer.spec" to get a binary build in
-/usr/src/redhat/RPMS/i386/
+
 
 Matthias
 

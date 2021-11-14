@@ -63,7 +63,7 @@ Log Message:
 removed old evolver
 
 Index: MANIFEST
-===================================================================
+
 RCS file: /cvsroot/spamassassin/spamassassin/MANIFEST,v
 retrieving revision 1.100.2.11
 retrieving revision 1.100.2.12

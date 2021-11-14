@@ -148,7 +148,7 @@ RPM build errors:
       Installed (but unpackaged) file(s) found:
      /etc/makedev.d/00macros
      /etc/rc.d/init.d/alsasound
-========================================================================
+
 
 Like I said, I'm a beginned with RPM building, so I don't understand
 much of what's going on here.  The 00macros file is from the MAKEDEV

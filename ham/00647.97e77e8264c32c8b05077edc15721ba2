@@ -59,7 +59,7 @@ archives, here's how to "patch" ricochet:
 
 1. procmailrc (/tmp/pmrc):
 
-RICOCHET=/usr/local/etc/ricochet
+
 PMDIR=/tmp
 LOGFILE=$PMDIR/pmlog
 VERBOSE=yes
