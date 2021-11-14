@@ -132,7 +132,6 @@ get_ham_body_metric <- function(filename) {
 spam_subject_words_dictionary <- read_csv(
                                           full_github_url("spam_subject_words.csv"),
                                           show_col_types = FALSE)
-
 spam_words_dictionary <- read_csv(
                                   full_github_url("spam_words.csv"),
                                   show_col_types = FALSE)
