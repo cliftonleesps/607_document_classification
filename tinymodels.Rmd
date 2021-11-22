@@ -206,7 +206,7 @@ email_messages
 
 
 ```{r}
-
+# Start building the model
 set.seed(4393003)
 
 email_split <- initial_split(email_messages, 
